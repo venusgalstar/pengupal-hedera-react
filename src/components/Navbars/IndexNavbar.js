@@ -146,8 +146,8 @@ function IndexNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/blueprint">
-                  <p>BLUEPRINT</p>
+                <NavLink href="/vision">
+                  <p>VISION</p>
                 </NavLink>
               </NavItem>
               <NavItem>

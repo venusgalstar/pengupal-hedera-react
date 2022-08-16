@@ -83,7 +83,7 @@ function ManifestoPage() {
                         className="img-fluid img-raised"
                         src={require("assets/img/team-avatar-4.png")}
                       ></img>
-                      <h4 className="title">SHAKER</h4>
+                      <h4 className="title">AREM</h4>
                       <p className="category text-info">WEB DEVELOPER</p>
                     </div>
                   </Col>

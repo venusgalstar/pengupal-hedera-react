@@ -34,7 +34,7 @@ import HomePage from "views/HomePage.js";
 import PengulandPage from "views/PengulandPage.js";
 import PenguinsPage from "views/PenguinsPage.js";
 import ManifestoPage from "views/ManifestoPage.js";
-import BlueprintPage from "views/BlueprintPage.js";
+import VisionPage from "views/VisionPage.js";
 import ShopPage from "views/ShopPage.js";
 // nav var
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
@@ -66,8 +66,8 @@ root.render(
           render={(props) => <ManifestoPage {...props} />}
         />
         <Route
-          path="/blueprint"
-          render={(props) => <BlueprintPage {...props} />}
+          path="/vision"
+          render={(props) => <VisionPage {...props} />}
         />
         <Route
           path="/shop"

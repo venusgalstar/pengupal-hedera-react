@@ -6,9 +6,11 @@ import {
   Container,
   Row,
   Col,
-  Modal,
   Input
 } from "reactstrap";
+
+
+import Modal from '@mui/material/Modal';
 
 import QRCode from "react-qr-code";
 import { useHashConnect } from "../assets/api/HashConnectAPIProvider.tsx";
@@ -152,11 +154,14 @@ function ShopPage() {
           </Row>
         </Container>
         <Modal
-          isOpen={open && !id}
+          open={open && !id}
           onClose={handleClose}
           centered={true}
           className="wallet-bar-top"
           style={{
+            top: "50px",
+            left: "auto",
+            right: "20px",
             width: "300px"
           }}
         >
