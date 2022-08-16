@@ -15,7 +15,7 @@
     .show > &.dropdown-toggle,
     .show > &.dropdown-toggle:focus,
     .show > &.dropdown-toggle:hover {
-        background-color: $btn-states-color;
+        background-color: $nav-item-sel;
         color: $white-color;
         box-shadow: none;
     }

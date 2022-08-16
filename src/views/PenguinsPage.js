@@ -33,47 +33,29 @@ function PenguinsPage() {
   }, []);
   return (
     <>
-      <div className="section section-nucleo-icons">
+      <div
+        className="section section-nucleo-icons"
+        style={{ backgroundColor: "#ffd4ff" }}>
         <Container>
           <Row>
             <Col lg="6" md="12">
-              <Row>
-                <h3 className="mini-title mb-2">Penguins</h3>
-              </Row>
-              <Row>
-                <h2 className="title">Founders Coin Check</h2>
-              </Row>
-              <Row>
-                <h5 className="description">
-                  Enter Bear number to check Founders Coin claim status!
-                </h5>
-              </Row>
-              <Row>
-                <Input
-                  className="penguin-num-input"
-                  placeholder="Enter Penguin Number"
-                ></Input>
-              </Row>
-              <Row>
-                <Button
-                  className="mr-1 mt-4"
-                  color="info"
-                  size="lg"
-                  target="_blank"
-                >
-                  Search Penguin
-                </Button>
-              </Row>
-              {/* <Button
-                className="btn-round"
+              <h3 className="mini-title mb-2">Penguin Rarity Tool</h3>
+              {/* <h2 className="title">Penguin Rarity Tool</h2> */}
+              <h5 className="description mb-4">
+                Enter penguin number to check rarity!
+              </h5>
+              <Input
+                className="penguin-num-input"
+                placeholder="Enter Penguin Number"
+              ></Input>
+              <Button
+                className="mr-1 mt-3"
                 color="info"
-                href="https://nucleoapp.com/?ref=1712"
-                outline
                 size="lg"
                 target="_blank"
               >
-                View All Icons
-              </Button> */}
+                Search Penguin
+              </Button>
             </Col>
             <Col lg="6" md="12">
               <div className="cpg-hibernation-penguin">

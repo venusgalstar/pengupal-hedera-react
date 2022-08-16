@@ -141,11 +141,6 @@ function IndexNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/park">
-                  <p>PARK</p>
-                </NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink href="/manifesto">
                   <p>MANIFESTO</p>
                 </NavLink>

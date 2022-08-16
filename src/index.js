@@ -33,7 +33,6 @@ import ProfilePage from "views/examples/ProfilePage.js";
 import HomePage from "views/HomePage.js";
 import PengulandPage from "views/PengulandPage.js";
 import PenguinsPage from "views/PenguinsPage.js";
-import ParkPage from "views/ParkPage.js";
 import ManifestoPage from "views/ManifestoPage.js";
 import BlueprintPage from "views/BlueprintPage.js";
 import ShopPage from "views/ShopPage.js";
@@ -61,10 +60,6 @@ root.render(
         <Route
           path="/penguins"
           render={(props) => <PenguinsPage {...props} />}
-        />
-        <Route
-          path="/park"
-          render={(props) => <ParkPage {...props} />}
         />
         <Route
           path="/manifesto"

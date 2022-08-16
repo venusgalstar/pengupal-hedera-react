@@ -5,6 +5,7 @@
     // margin-top: 57px;
     position: relative;
     background: $white-color;
+    min-height: 100vh;
 
     .row+.category {
         margin-top: $margin-base-vertical;
@@ -34,7 +35,7 @@
     position: fixed;
     right: 10%;
     bottom: 5%;
-    width: 25vw;
+    width: 35vh;
 }
 
 .section-navbars {
