@@ -25,14 +25,13 @@ import "assets/scss/now-ui-kit.scss?v=1.5.0";
 import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 // pages for this kit
-import Index from "views/Index.js";
 import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 
 import HomePage from "views/HomePage.js";
-import CoinsPage from "views/CoinsPage.js";
+import PengulandPage from "views/PengulandPage.js";
 import PenguinsPage from "views/PenguinsPage.js";
 import ParkPage from "views/ParkPage.js";
 import ManifestoPage from "views/ManifestoPage.js";
@@ -56,8 +55,8 @@ root.render(
       <Switch>
         <Route path="/home" render={(props) => <HomePage {...props} />} />
         <Route
-          path="/coins"
-          render={(props) => <CoinsPage {...props} />}
+          path="/penguland"
+          render={(props) => <PengulandPage {...props} />}
         />
         <Route
           path="/penguins"

@@ -131,7 +131,7 @@ function IndexNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/coins">
+                <NavLink href="/penguland">
                   <p>PENGULAND</p>
                 </NavLink>
               </NavItem>
