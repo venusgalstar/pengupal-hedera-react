@@ -69,28 +69,33 @@ function ShopPage() {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
-  
+
   return (
-    
     <>
-      
-      <div className="section section-nucleo-icons">
+      <div
+        className="section section-nucleo-icons"
+        style={{ backgroundColor: "#ffe681" }}>
         <Container>
           <Row>
             <Col lg="6" md="12" className="mt-5">
               <img
                 alt="..."
-                src={require("assets/img/penguin-island.png")}
+                src={require("assets/img/default-item-img.png")}
               ></img>
             </Col>
-            <Col lg="6" md="12" className="pl-5">
-              <Row>
+            <Col lg="6" md="12" className="mt-5">
+              <img
+              className="mb-5"
+                alt="..."
+                src={require("assets/img/pengupalsapparel-logo.png")}
+              ></img>
+              {/* <Row>
                 <h3 className="mini-title mb-2">Club Penguin</h3>
-              </Row>
+              </Row> */}
               <Row>
-                <h2 className="title">Welcome Pack</h2>
+                <h2 className="title ml-5">Coming soon!</h2>
               </Row>
-              <Row>
+              {/* <Row>
                 <h5 className="description mb-0">
                   The wristband that sent shockwaves across the metaverse is ready to order.
                 </h5>
@@ -113,7 +118,6 @@ function ShopPage() {
                   Each Okay Bear allows access to one welcome pack. You can choose to redeem your pack today or leave it ‘unboxed’ with its respective Okay Bear.
                 </h5>
               </Row>
-
               {id &&
                 <Button
                   className="mr-1 mt-4 ml-0"
@@ -136,20 +140,20 @@ function ShopPage() {
                   Connect Wallet
                 </Button>
               }
-               {accountIds && accountIds?.length > 0 &&
+              {accountIds && accountIds?.length > 0 &&
                 accountIds.map(item =>
-                    <div>
-                        {item}
-                    </div>
+                  <div>
+                    {item}
+                  </div>
                 )
-            }
-            {infoData && infoData?.length > 0 &&
+              }
+              {infoData && infoData?.length > 0 &&
                 infoData.map(item =>
-                    <div>
-                        {item}
-                    </div>
+                  <div>
+                    {item}
+                  </div>
                 )
-            }
+              } */}
             </Col>
           </Row>
         </Container>
