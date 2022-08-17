@@ -84,40 +84,12 @@ function ShopPage() {
               ></img>
             </Col>
             <Col lg="6" md="12" className="mt-5">
+              <h2 className="mini-title">Coming soon!</h2>
               <img
-              className="mb-5"
                 alt="..."
                 src={require("assets/img/pengupalsapparel-logo.png")}
               ></img>
-              {/* <Row>
-                <h3 className="mini-title mb-2">Club Penguin</h3>
-              </Row> */}
-              <Row>
-                <h2 className="title ml-5">Coming soon!</h2>
-              </Row>
-              {/* <Row>
-                <h5 className="description mb-0">
-                  The wristband that sent shockwaves across the metaverse is ready to order.
-                </h5>
-                <h5 className="description mb-0">
-                  In addition, your welcome pack includes the following limited edition items:
-                </h5>
-                <h5 className="description mb-0">
-                  Okay hand-sign enamel pin
-                </h5>
-                <h5 className="description mb-0">
-                  Okay Iron-on patch
-                </h5>
-                <h5 className="description mb-0">
-                  5 Stickers
-                </h5>
-                <h5 className="description mb-0">
-                  1 Post card
-                </h5>
-                <h5 className="description mb-0">
-                  Each Okay Bear allows access to one welcome pack. You can choose to redeem your pack today or leave it ‘unboxed’ with its respective Okay Bear.
-                </h5>
-              </Row>
+              {/* 
               {id &&
                 <Button
                   className="mr-1 mt-4 ml-0"

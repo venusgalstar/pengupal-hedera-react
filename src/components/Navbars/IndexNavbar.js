@@ -127,7 +127,7 @@ function IndexNavbar() {
             <Nav navbar>
               <NavItem>
                 <NavLink href="/">
-                  <p>COMING SOON</p>
+                  <p>WELCOME</p>
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -222,7 +222,7 @@ function IndexNavbar() {
                   Follow us on Twitter
                 </UncontrolledTooltip>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink
                   href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
                   target="_blank"
@@ -234,7 +234,7 @@ function IndexNavbar() {
                 <UncontrolledTooltip target="#facebook-tooltip">
                   Like us on Instagram
                 </UncontrolledTooltip>
-              </NavItem>
+              </NavItem> */}
               <NavItem>
                 <NavLink
                   href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
