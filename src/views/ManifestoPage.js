@@ -40,7 +40,7 @@ function ManifestoPage() {
           </Row>
           <Row className="mt-5 pb-5">
             <Container className="mt-5">
-              <h2 className="title">TEAM</h2>
+              <h2 className="mini-title" style={{ textTransform: "capitalize" }}>Team</h2>
               <div className="team mt-5">
                 <Row>
                   <Col md="3">
@@ -50,7 +50,7 @@ function ManifestoPage() {
                         className="img-fluid img-raised"
                         src={require("assets/img/team-avatar-1.png")}
                       ></img>
-                      <h4 className="title">PRINALE</h4>
+                      <h4 className="mini-title mt-3 mb-2" style={{ textTransform: "capitalize" }}>Prinale</h4>
                       <p className="category text-info">CO-FOUNDER</p>
                     </div>
                   </Col>
@@ -61,7 +61,7 @@ function ManifestoPage() {
                         className="img-fluid img-raised"
                         src={require("assets/img/team-avatar-2.png")}
                       ></img>
-                      <h4 className="title">LERA</h4>
+                      <h4 className="mini-title mt-3 mb-2" style={{ textTransform: "capitalize" }}>Lera</h4>
                       <p className="category text-info">ART DIRECTOR</p>
                     </div>
                   </Col>
@@ -72,7 +72,7 @@ function ManifestoPage() {
                         className="img-fluid img-raised"
                         src={require("assets/img/team-avatar-3.png")}
                       ></img>
-                      <h4 className="title">GLINTON</h4>
+                      <h4 className="mini-title mt-3 mb-2" style={{ textTransform: "capitalize" }}>Glinton</h4>
                       <p className="category text-info">WEB DEVELOPER</p>
                     </div>
                   </Col>
@@ -83,8 +83,8 @@ function ManifestoPage() {
                         className="img-fluid img-raised"
                         src={require("assets/img/team-avatar-4.png")}
                       ></img>
-                      <h4 className="title">AREM</h4>
-                      <p className="category text-info">WEB DEVELOPER</p>
+                      <h4 className="mini-title mt-3 mb-2" style={{ textTransform: "capitalize" }}>Arem</h4>
+                      <p className="category text-info">DEVELOPER</p>
                     </div>
                   </Col>
                 </Row>
