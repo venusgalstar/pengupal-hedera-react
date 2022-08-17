@@ -248,11 +248,11 @@ function IndexNavbar() {
                   Follow us on Discord
                 </UncontrolledTooltip>
               </NavItem>
-              {/* <NavItem className="wallet-connect-btn" onClick={onClickConnectWallet}>
+              <NavItem className="wallet-connect-btn" onClick={onClickConnectWallet}>
                 <NavLink>
                   <p>Connect Wallet</p>
                 </NavLink>
-              </NavItem> */}
+              </NavItem>
             </Nav>
           </Collapse>
         </Container>
