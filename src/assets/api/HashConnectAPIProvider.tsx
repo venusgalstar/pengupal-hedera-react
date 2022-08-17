@@ -258,8 +258,11 @@ export default function HashConnectProvider({
   };
 
   return (
+    // <HashConnectAPIContext.Provider
+    //   value={{ connect, disconnect, walletData: saveData, infoData: accountsInfo, netWork, installedExtensions }}
+    // >
     <HashConnectAPIContext.Provider
-      value={{ connect, disconnect, walletData: saveData, infoData: accountsInfo, netWork, installedExtensions }}
+      value={{ connect, disconnect, walletData: saveData, installedExtensions }}
     >
       {children}
     </HashConnectAPIContext.Provider>

@@ -4,10 +4,10 @@ import React from "react";
 import {
   Button,
   Collapse,
-  // DropdownToggle,
-  // DropdownMenu,
-  // DropdownItem,
-  // UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
   NavbarBrand,
   Navbar,
   NavItem,
@@ -15,9 +15,11 @@ import {
   Nav,
   Container,
   UncontrolledTooltip,
-  Modal
+  Row,
+  Input
 } from "reactstrap";
-// import Modal from "@material-ui/core/Modal";
+
+import Modal from '@mui/material/Modal';
 import QRCode from "react-qr-code";
 import { useHashConnect } from "../../assets/api/HashConnectAPIProvider.tsx";
 
@@ -26,7 +28,7 @@ function IndexNavbar() {
   const [collapseOpen, setCollapseOpen] = React.useState(false);
 
 
-  const { connect, disconnect, walletData, balanceData, installedExtensions } = useHashConnect();
+  const { connect, disconnect, walletData, installedExtensions } = useHashConnect();
 
   const { accountIds, netWork, id } = walletData;
 
@@ -34,11 +36,17 @@ function IndexNavbar() {
 
   const onClickConnectWallet = () => {
     console.log("===connect wallet===");
+    onClickDisconnectWallet();
     setOpen(true);
+  };
+
+  const emptyFunction = () => {
+    console.log("===Empty Function===");
   };
 
   const onClickDisconnectWallet = () => {
     console.log("===disconnect wallet===");
+    setOpen(false);
     disconnect();
   };
 
@@ -211,7 +219,7 @@ function IndexNavbar() {
               </NavItem> */}
               <NavItem>
                 <NavLink
-                  href="https://twitter.com/CreativeTim?ref=creativetim"
+                  href="https://mobile.twitter.com/pengupals"
                   target="_blank"
                   id="twitter-tooltip"
                 >
@@ -237,7 +245,7 @@ function IndexNavbar() {
               </NavItem> */}
               <NavItem>
                 <NavLink
-                  href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+                  href="https://t.co/CawMg82Gkv"
                   target="_blank"
                   id="instagram-tooltip"
                 >
@@ -248,28 +256,148 @@ function IndexNavbar() {
                   Follow us on Discord
                 </UncontrolledTooltip>
               </NavItem>
-              <NavItem className="wallet-connect-btn" onClick={onClickConnectWallet}>
+              <UncontrolledDropdown nav
+                style={{
+                  textAlign: "center",
+                  minWidth: "150px"
+                }}>
+                <DropdownToggle
+                  caret={accountIds?.length > 0 ? true : false}
+                  color="default"
+                  nav
+                  style={{
+                    border: "1px solid #351d35",
+                    borderRadius: "32px"
+                  }}
+                  onClick={accountIds?.length > 0 ? () => emptyFunction() : () => onClickConnectWallet()}
+                >
+                  <p>{accountIds?.length > 0 ? "Connected" : "Connect Wallet"}</p>
+                </DropdownToggle>
+                <DropdownMenu>
+                  {accountIds?.length > 0 && accountIds.map((item, key) =>
+                    <DropdownItem>
+                      {item}
+                    </DropdownItem>
+                  )}
+                  {accountIds?.length > 0 &&
+                    <DropdownItem
+                      onClick={() => onClickDisconnectWallet()}>
+                      Disconnect
+                    </DropdownItem>
+                  }
+                </DropdownMenu>
+              </UncontrolledDropdown>
+              {/* <NavItem className="wallet-connect-btn" onClick={onClickConnectWallet}>
                 <NavLink>
                   <p>Connect Wallet</p>
                 </NavLink>
-              </NavItem>
+              </NavItem> */}
             </Nav>
           </Collapse>
         </Container>
         <Modal
-          isOpen={open}
+          open={open && !id}
           onClose={handleClose}
-          className="wallet-bar__top"
+          centered={true}
+          className="wallet-bar-top"
+          style={{
+            top: "50px",
+            left: "auto",
+            right: "20px",
+            width: "300px"
+          }}
         >
-          <div className="wallet-bar__modal">
-            <div className="wallet-bar__in_modal">
-              <img src='https://d30y9cdsu7xlg0.cloudfront.net/png/53504-200.png' className="wallet-bar__modal_close" onClick={handleClose} />
-              {!installedExtensions && <p>Wallet is not installed in your browser</p>}
-              <p><Button className="wallet-bar__button" label="ConnectWithExtension" onClick={handleClick} /></p>
-              <p>ParingKey : {walletData.pairingString.substring(0, 15)}...</p>
-              <p><Button className="wallet-bar__button" label="Copy Paring String" onClick={handleCopy} /></p>
-              <p>QR Code</p>
-              <QRCode value={walletData.pairingString} />
+          <div
+            className="wallet-bar-modal"
+            style={{
+              backgroundColor: "#031018",
+              maxWidth: "fit-content",
+              padding: "20px 20px",
+              border: "2px solid #479ed0"
+            }}>
+            <div className="wallet-bar-in_modal">
+              <Row>
+                <h3
+                  className="mini-title"
+                  style={{
+                    maxWidth: "fit-content",
+                    float: "left",
+                    margin: "0 80px 0 20px",
+                    color: "white"
+                  }}>
+                  Pair Wallet
+                </h3>
+                <img
+                  src={require("assets/img/close.png")}
+                  className="wallet-bar-modal-close"
+                  onClick={handleClose}
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                    float: "right",
+                    cursor: "pointer"
+                  }} />
+              </Row>
+              {!installedExtensions &&
+                <p
+                  className="mt-2"
+                  style={{
+                    color: "white"
+                  }}>
+                  Wallet is not installed in your browser
+                </p>
+              }
+              {installedExtensions &&
+                <div>
+                  <p
+                    className="mt-2 mb-1"
+                    style={{
+                      color: "white",
+                      fontWeight: "500"
+                    }}>
+                    PAIR WITH WALLET
+                  </p>
+                  <Button
+                    className="wallet-bar-button"
+                    style={{
+                      width: "100%",
+                      color: "white",
+                      fontWeight: "500",
+                      backgroundColor: "#479ed0"
+                    }}
+                    onClick={handleClick}>
+                    HashPack
+                  </Button>
+                  <p
+                    className="mt-2 mb-1"
+                    style={{
+                      color: "white",
+                      fontWeight: "500"
+                    }}>
+                    PAIR WITH CODE
+                  </p>
+                  <Input
+                    style={{
+                      width: "100%",
+                      color: "white",
+                      fontWeight: "500",
+                      borderRadius: "5px",
+                      backgroundColor: "transparent"
+                    }}
+                    value={walletData.pairingString} />
+                  {/* <Button className="wallet-bar-button" label="Copy Paring String" onClick={handleCopy} /> */}
+                  <p
+                    className="mt-2 mb-1"
+                    style={{
+                      color: "white",
+                      fontWeight: "500"
+                    }}>
+                    PAIR WITH QR CODE
+                  </p>
+                  <QRCode value={walletData.pairingString} />
+                </div>
+              }
+
             </div>
           </div>
         </Modal>

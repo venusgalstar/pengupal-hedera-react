@@ -48,9 +48,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <HashConnectProvider hashConnect={hashConnect} debug>
     <BrowserRouter>
-
       <IndexNavbar />
-      {/* </HashConnectProvider> */}
       <Switch>
         <Route path="/home" render={(props) => <HomePage {...props} />} />
         <Route
