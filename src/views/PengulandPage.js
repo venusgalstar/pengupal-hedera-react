@@ -45,8 +45,11 @@ function PengulandPage() {
                   alt="..."
                   src={require("assets/img/penguland-logo.png")}
                 ></img>
+                <h5 className="description mt-5">
+                  Penguland will be the core of Pengupals. A decentralised application allowing our holders to enter an online multiplayer realm. In-game wearables(NFTs) will be purchasable with our $PAL token. New wearables, pets and items will be released consistently.
+                </h5>
                 <img
-                  className="mt-5"
+                  className="mt-4"
                   alt="..."
                   src={require("assets/img/penguland1.jpg")}
                 ></img>
