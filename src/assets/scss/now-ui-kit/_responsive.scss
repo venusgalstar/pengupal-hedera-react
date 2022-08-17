@@ -6,7 +6,7 @@
             .navbar-collapse{
                 right: auto;
                 left: 0;
-                @include transform-translate-x(-300px);
+                @include transform-translate-x(-180px);
             }
         }
 
@@ -16,11 +16,11 @@
             }
 
             .wrapper{
-                @include transform-translate-x(-150px);
+                @include transform-translate-x(-180px);
             }
 
             .navbar-translate{
-                @include transform-translate-x(-150px);
+                @include transform-translate-x(-180px);
             }
 
             &.menu-on-left{
@@ -29,16 +29,16 @@
                 }
 
                 .navbar-translate{
-                    @include transform-translate-x(300px);
+                    @include transform-translate-x(180px);
                 }
 
                 .wrapper{
-                    @include transform-translate-x(150px);
+                    @include transform-translate-x(180px);
                 }
 
                 #bodyClick{
                     right: auto;
-                    left: 300px;
+                    left: 180px;
                 }
             }
         }

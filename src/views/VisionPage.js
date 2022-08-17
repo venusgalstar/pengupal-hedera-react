@@ -68,6 +68,7 @@ function BlueprintPage() {
                   alt="..."
                   src={require("assets/img/vision-mini-1.png")}
                 ></img>
+                <p className="vision-item-title">ART</p>
               </Button>
             </Col>
             <Col lg="3" md="12"
@@ -80,6 +81,7 @@ function BlueprintPage() {
                   alt="..."
                   src={require("assets/img/vision-mini-2.png")}
                 ></img>
+                <p className="vision-item-title">PENGULAND</p>
               </Button>
             </Col>
             <Col lg="3" md="12"
@@ -92,6 +94,7 @@ function BlueprintPage() {
                   alt="..."
                   src={require("assets/img/vision-mini-3.png")}
                 ></img>
+                <p className="vision-item-title">APPAREL</p>
               </Button>
             </Col>
             <Col lg="3" md="12"
@@ -104,6 +107,7 @@ function BlueprintPage() {
                   alt="..."
                   src={require("assets/img/vision-mini-4.png")}
                 ></img>
+                <p className="vision-item-title">TOKEN</p>
               </Button>
             </Col>
           </Row>

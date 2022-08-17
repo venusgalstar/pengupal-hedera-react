@@ -88,6 +88,7 @@
             background-color: $nav-item-sel;
             // border-radius: $border-radius-small;
             border-radius: 32px;
+            height: 100%;
         }
     }
 
@@ -182,7 +183,7 @@
 }
 
 .bg-info {
-    background-color: $new-main-color !important;
+    background-color: $new-main-color  !important;
 }
 
 .bg-success {
@@ -205,28 +206,18 @@
     cursor: pointer;
     max-width: 150px;
     width: 150px;
-    border: 2px solid white;
+    border: 2px solid $nav-item-sel;
     border-radius: 32px;
-    margin-left: 20px;
+    margin-left: 16px;
 }
 
 .wallet-connect-btn:hover {
-    background-color: white;
     cursor: pointer;
-    max-width: 150px;
-    width: 150px;
-    border: 2px solid white;
-    border-radius: 32px;
-    margin-left: 20px;
 }
 
 .wallet-connect-btn p {
-    color: white;
+    color: $nav-item-sel;
     font-weight: 1000;
-}
-
-.wallet-connect-btn:hover p {
-    color: #53baf4;
 }
 
 .wallet-connect-btn .nav-link {
