@@ -59,9 +59,14 @@ function PengulandPage() {
                   src={require("assets/img/penguland2.jpg")}
                 ></img>
                 <img
-                  className="mt-5 mb-5"
+                  className="mt-5"
                   alt="..."
                   src={require("assets/img/penguland3.jpg")}
+                ></img>                
+                <img
+                  className="mt-5 mb-5"
+                  alt="..."
+                  src={require("assets/img/penguland4.jpg")}
                 ></img>
               </Col>
             </Row>
