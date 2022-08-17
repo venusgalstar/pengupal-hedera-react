@@ -14,6 +14,7 @@ import {
 
 
 import Modal from '@mui/material/Modal';
+import { render } from "react-dom";
 
 // core components
 // import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
@@ -24,6 +25,15 @@ function BlueprintPage() {
 
   const [open, setOpen] = React.useState(false);
   const [visionNum, setVisionNum] = React.useState(1);
+
+  const visionTitle = ["ART", "PENGULAND", "APPAREL", "TOKEN"];
+
+  const visionDescription = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "Penguland will be the core of Pengupals. A decentralised application allowing our holders to enter an online multiplayer realm. In-game wearables(NFTs) will be purchasable with our $PAL token. New wearables, pets and items will be released consistently.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  ];
 
   const onVisionClicked = (selNum) => {
     console.log("Vision clicked!");
@@ -60,54 +70,70 @@ function BlueprintPage() {
           <Row>
             <Col lg="3" md="12"
               style={{
-                display: "flex"
+                display: "flex",
+                flexDirection: "column"
               }}>
-              <Button className="vision-image-btn" onClick={() => onVisionClicked(1)}>
+              <Button
+                className="vision-image-btn"
+                onClick={() => onVisionClicked(1)}
+                style={{ backgroundColor: "transparent" }}>
                 <img
                   style={{ height: "100%" }}
                   alt="..."
                   src={require("assets/img/vision-mini-1.png")}
                 ></img>
-                <p className="vision-item-title">ART</p>
+                <p className="vision-item-title">{visionTitle[0]}</p>
               </Button>
             </Col>
             <Col lg="3" md="12"
               style={{
-                display: "flex"
+                display: "flex",
+                flexDirection: "column"
               }}>
-              <Button className="vision-image-btn" onClick={() => onVisionClicked(2)}>
+              <Button
+                className="vision-image-btn"
+                onClick={() => onVisionClicked(2)}
+                style={{ backgroundColor: "transparent" }}>
                 <img
                   style={{ height: "100%" }}
                   alt="..."
                   src={require("assets/img/vision-mini-2.png")}
                 ></img>
-                <p className="vision-item-title">PENGULAND</p>
+                <p className="vision-item-title">{visionTitle[1]}</p>
               </Button>
             </Col>
             <Col lg="3" md="12"
               style={{
-                display: "flex"
+                display: "flex",
+                flexDirection: "column"
               }}>
-              <Button className="vision-image-btn" onClick={() => onVisionClicked(3)}>
+              <Button
+                className="vision-image-btn"
+                onClick={() => onVisionClicked(3)}
+                style={{ backgroundColor: "transparent" }}>
                 <img
                   style={{ height: "100%" }}
                   alt="..."
                   src={require("assets/img/vision-mini-3.png")}
                 ></img>
-                <p className="vision-item-title">APPAREL</p>
+                <p className="vision-item-title">{visionTitle[2]}</p>
               </Button>
             </Col>
             <Col lg="3" md="12"
               style={{
-                display: "flex"
+                display: "flex",
+                flexDirection: "column"
               }}>
-              <Button className="vision-image-btn" onClick={() => onVisionClicked(4)}>
+              <Button
+                className="vision-image-btn"
+                onClick={() => onVisionClicked(4)}
+                style={{ backgroundColor: "transparent" }}>
                 <img
                   style={{ height: "100%" }}
                   alt="..."
                   src={require("assets/img/vision-mini-4.png")}
                 ></img>
-                <p className="vision-item-title">TOKEN</p>
+                <p className="vision-item-title">{visionTitle[3]}</p>
               </Button>
             </Col>
           </Row>
@@ -119,17 +145,37 @@ function BlueprintPage() {
         >
           <div
             style={{
-              marginTop: "20px",
-              width: "fit-content"
+              backgroundColor: "#ffd4ff",
+              height: "80vh",
+              width: "80vw",
+              margin: "10vh 10vw",
+              border: "2px solid #6a3d5c",
+              overflow: "auto"
             }}>
-            <img
-              style={{
-                height: "calc(100vh - 40px)",
-                maxWidth: "none"
-              }}
-              alt="..."
-              src={require("assets/img/vision-" + visionNum + ".png")}
-            ></img>
+            <Row>
+              <Col lg="6" md="12" className="pl-4">
+                <h3 className="title mt-5 mb-2">{visionTitle[visionNum - 1]}</h3>
+                <h5 className="description mb-4">
+                  {visionDescription[visionNum - 1]}
+                </h5>
+              </Col>
+              <Col
+                lg="6" md="12"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center"
+                }}>
+                <img
+                  style={{
+                    marginTop: "50px",
+                    maxWidth: "calc(100% - 20px)"
+                  }}
+                  alt="..."
+                  src={require("assets/img/vision-" + visionNum + ".png")}
+                ></img>
+              </Col>
+            </Row>
           </div>
         </Modal>
       </div>

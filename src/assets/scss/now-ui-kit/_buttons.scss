@@ -82,8 +82,9 @@
 
 .vision-item-title {
     color: #ffd4ff;
-    position: fixed;
+    position: relative;
     margin-top: -36px;
+    margin-bottom: 0px;
     background-color: #6a3d5c;
     border-top-right-radius: 24px;
     width: fit-content;
