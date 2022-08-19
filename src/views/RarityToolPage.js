@@ -17,7 +17,7 @@ import {
 // import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 // import DefaultFooter from "components/Footers/DefaultFooter.js";
 
-function PenguinsPage() {
+function RarityToolPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   React.useEffect(() => {
@@ -38,7 +38,33 @@ function PenguinsPage() {
         style={{ backgroundColor: "#ffd4ff" }}>
         <Container>
           <Row>
-            
+            <Col lg="6" md="12">
+              <h3 className="mini-title mb-2">Penguin Rarity Tool</h3>
+              {/* <h2 className="title">Penguin Rarity Tool</h2> */}
+              <h5 className="description mb-4">
+                Enter penguin number to check rarity!
+              </h5>
+              <Input
+                className="penguin-num-input"
+                placeholder="Enter Penguin Number"
+              ></Input>
+              <Button
+                className="mr-1 mt-3"
+                color="info"
+                size="lg"
+                target="_blank"
+              >
+                Search Penguin
+              </Button>
+            </Col>
+            <Col lg="6" md="12">
+              <div className="cpg-hibernation-penguin">
+                <img
+                  alt="..."
+                  src={require("assets/img/soda-penguin.png")}
+                ></img>
+              </div>
+            </Col>
           </Row>
         </Container>
       </div>
@@ -46,4 +72,4 @@ function PenguinsPage() {
   );
 }
 
-export default PenguinsPage;
+export default RarityToolPage;

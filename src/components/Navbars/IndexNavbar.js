@@ -25,14 +25,14 @@ import { useHashConnect } from "../../assets/api/HashConnectAPIProvider.tsx";
 
 function IndexNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
-  const [collapseOpen, setCollapseOpen] = React.useState(false);
+  const [collapseOpen, setCollapseOpen] = React.useState(false);  
+  const [open, setOpen] = React.useState(false);
 
 
   const { connect, disconnect, walletData, installedExtensions } = useHashConnect();
-
   const { accountIds, netWork, id } = walletData;
 
-  const [open, setOpen] = React.useState(false);
+  
 
   const onClickConnectWallet = () => {
     console.log("===connect wallet===");
@@ -149,6 +149,11 @@ function IndexNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem>
+                <NavLink href="/rarity-tool">
+                  <p>RARITY TOOL</p>
+                </NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink href="/manifesto">
                   <p>MANIFESTO</p>
                 </NavLink>
@@ -261,7 +266,7 @@ function IndexNavbar() {
                   Follow us on Discord
                 </UncontrolledTooltip>
               </NavItem>
-              <UncontrolledDropdown nav
+              {/* <UncontrolledDropdown nav
                 style={{
                   textAlign: "center",
                   minWidth: "150px"
@@ -292,12 +297,12 @@ function IndexNavbar() {
                     </DropdownItem>
                   }
                 </DropdownMenu>
-              </UncontrolledDropdown>
-              {/* <NavItem className="wallet-connect-btn" onClick={onClickConnectWallet}>
+              </UncontrolledDropdown> */}
+              <NavItem className="wallet-connect-btn" onClick={accountIds?.length > 0 ? () => onClickDisconnectWallet() : () => onClickConnectWallet()}>
                 <NavLink>
-                  <p>Connect Wallet</p>
+                  <p><p>{accountIds?.length > 0 ? accountIds[0] : "Connect Wallet"}</p></p>
                 </NavLink>
-              </NavItem> */}
+              </NavItem>
             </Nav>
           </Collapse>
         </Container>

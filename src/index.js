@@ -33,6 +33,7 @@ import ProfilePage from "views/examples/ProfilePage.js";
 import HomePage from "views/HomePage.js";
 import PengulandPage from "views/PengulandPage.js";
 import PenguinsPage from "views/PenguinsPage.js";
+import RarityToolPage from "views/RarityToolPage.js";
 import ManifestoPage from "views/ManifestoPage.js";
 import VisionPage from "views/VisionPage.js";
 import ShopPage from "views/ShopPage.js";
@@ -59,6 +60,10 @@ root.render(
         <Route
           path="/penguins"
           render={(props) => <PenguinsPage {...props} />}
+        />
+        <Route
+          path="/rarity-tool"
+          render={(props) => <RarityToolPage {...props} />}
         />
         <Route
           path="/manifesto"
