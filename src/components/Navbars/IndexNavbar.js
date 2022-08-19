@@ -163,6 +163,11 @@ function IndexNavbar() {
                   <p>SHOP</p>
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/claim">
+                  <p>CLAIM</p>
+                </NavLink>
+              </NavItem>
               {/* <NavItem>
                 <NavLink
                   href="#pablo"
@@ -243,7 +248,7 @@ function IndexNavbar() {
                   Like us on Instagram
                 </UncontrolledTooltip>
               </NavItem> */}
-              <NavItem>
+              <NavItem className="mr-5">
                 <NavLink
                   href="https://t.co/CawMg82Gkv"
                   target="_blank"
@@ -267,7 +272,8 @@ function IndexNavbar() {
                   nav
                   style={{
                     border: "1px solid #351d35",
-                    borderRadius: "32px"
+                    borderRadius: "32px",
+                    maxHeight: "42px"
                   }}
                   onClick={accountIds?.length > 0 ? () => emptyFunction() : () => onClickConnectWallet()}
                 >

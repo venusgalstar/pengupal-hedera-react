@@ -134,7 +134,7 @@ export default function HashConnectProvider({
         saveData.pairingString = hashConnect.generatePairingString(
           state,
           netWork,
-          debug ?? false
+          false
         );
 
         //find any supported local wallets

@@ -36,6 +36,7 @@ import PenguinsPage from "views/PenguinsPage.js";
 import ManifestoPage from "views/ManifestoPage.js";
 import VisionPage from "views/VisionPage.js";
 import ShopPage from "views/ShopPage.js";
+import ClaimPage from "views/ClaimPage.js";
 // nav var
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import HashConnectProvider from "assets/api/HashConnectAPIProvider.tsx";
@@ -70,6 +71,10 @@ root.render(
         <Route
           path="/shop"
           render={(props) => <ShopPage {...props} />}
+        />
+        <Route
+          path="/claim"
+          render={(props) => <ClaimPage {...props} />}
         />
         <Route
           path="/nucleo-icons"

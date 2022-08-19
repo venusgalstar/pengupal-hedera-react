@@ -228,6 +228,7 @@
 
                 &:not(.btn) {
                     color: $navbar-item !important;
+                    width: fit-content;
                 }
             }
         }
