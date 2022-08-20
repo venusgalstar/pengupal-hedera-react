@@ -1,5 +1,6 @@
 import React from "react";
 
+import styled from "styled-components";
 // reactstrap components
 import {
   Button,
@@ -16,6 +17,7 @@ import {
 // import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 // import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 // import DefaultFooter from "components/Footers/DefaultFooter.js";
+import NftCard from '../components/NftCard.js';
 
 function PenguinsPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);
@@ -36,9 +38,13 @@ function PenguinsPage() {
       <div
         className="section section-nucleo-icons"
         style={{ backgroundColor: "#ffd4ff" }}>
-        <Container>
+        <Container className="mt-5">
           <Row>
-            
+            <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" ownerId="0.0.1094442" nftPrice={5000} ></NftCard>
+            <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" ownerId="0.0.1094442" nftPrice={5000} ></NftCard>
+            <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" ownerId="0.0.1094442" nftPrice={5000} ></NftCard>
+            <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" ownerId="0.0.1094442" nftPrice={5000} ></NftCard>
+            <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" ownerId="0.0.1094442" nftPrice={5000} ></NftCard>
           </Row>
         </Container>
       </div>
