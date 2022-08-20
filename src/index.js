@@ -24,6 +24,9 @@ import "assets/css/bootstrap.min.css";
 import "assets/scss/now-ui-kit.scss?v=1.5.0";
 import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
+
+import "assets/scss/pengupals-new.css";
+
 // pages for this kit
 import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "views/examples/LoginPage.js";
@@ -37,6 +40,7 @@ import RarityToolPage from "views/RarityToolPage.js";
 import ManifestoPage from "views/ManifestoPage.js";
 import VisionPage from "views/VisionPage.js";
 import ShopPage from "views/ShopPage.js";
+import NFTMintPage from "views/NFTMintPage.js";
 import ClaimPage from "views/ClaimPage.js";
 // nav var
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
@@ -76,6 +80,10 @@ root.render(
         <Route
           path="/shop"
           render={(props) => <ShopPage {...props} />}
+        />
+        <Route
+          path="/nft-mint"
+          render={(props) => <NFTMintPage {...props} />}
         />
         <Route
           path="/claim"

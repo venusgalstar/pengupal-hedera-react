@@ -40,16 +40,16 @@ const NftCard = ({ nftUrl, nftId, ownerId, nftPrice }) => {
                 <Row className="ml-2 mt-2 mb-2">{nftId}</Row>
                 <Row className="ml-2 mb-2">{ownerId}</Row>
                 <Row>
-                    <Col className="pl-0 pr-0">
+                    <Col className="pl-2 pr-0">
                         <p
-                            className="mb-2 ml-2"
+                            className="mb-2"
                             style={{ float: "left" }}>
                             Price
                         </p>
                     </Col>
-                    <Col className="pl-0 pr-0">
+                    <Col className="pl-0 pr-2">
                         <p
-                            className="mb-2 mr-2"
+                            className="mb-2"
                             style={{ float: "right" }}>
                             {`${nftPrice}PAL`}
                         </p>

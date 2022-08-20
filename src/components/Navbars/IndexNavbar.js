@@ -169,6 +169,11 @@ function IndexNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem>
+                <NavLink href="/nft-mint">
+                  <p>NFT MINT</p>
+                </NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink href="/claim">
                   <p>CLAIM</p>
                 </NavLink>
