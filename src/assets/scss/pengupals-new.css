@@ -94,3 +94,87 @@
     background-color: #351d35;
     margin: 0 auto;
 }
+
+.hashpack-connect-modal {
+    background-color: #59567e;
+    width: 296px;
+    height: fit-content;
+    border: 3px solid white;
+    padding: 20px 17px;
+    position: absolute !important;
+    right: 20px !important;
+    top: 20px !important;
+    left: auto !important;
+}
+
+.hashpack-connect-modal .row {
+    margin: 0;
+}
+
+.hashpack-connect-modal .modal-title {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.hashpack-connect-modal .modal-mini-title {
+    color: lightcyan;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.hashpack-connect-modal .hashpack-connect-btn {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    background-color: #4a417f;
+}
+
+.hashpack-connect-modal .hashpack-connect-btn:hover {
+    background-color: #424062;
+}
+
+.hashpack-connect-modal .hashpack-connect-btn img {
+    width: 24px;
+}
+
+.hashpack-connect-modal .hashpack-connect-btn p {
+    margin: 0 0 0 10px;
+}
+
+.hashpack-connect-modal .pair-with-code-wrapper {
+    width: 100%;
+}
+
+.hashpack-connect-modal .pair-with-code-wrapper .form-control {
+    height: 46px;
+    background-color: transparent;
+    color: white;
+    font-size: 14px;
+    border-radius: 0;
+    width: 200px;
+    border: 1px solid #4a417f;
+}
+
+.hashpack-connect-modal .pair-with-code-wrapper .btn {
+    background-color: #4a417f;
+    width: 56px;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.hashpack-connect-modal .pair-with-code-wrapper .btn:hover {
+    background-color: #424062;
+}
+
+.hashpack-connect-modal .warning-message {
+    color: white;
+    margin: 0;
+    font-weight: 500;
+}

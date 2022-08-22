@@ -25,49 +25,39 @@ import { useHashConnect } from "../../assets/api/HashConnectAPIProvider.tsx";
 
 function IndexNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
-  const [collapseOpen, setCollapseOpen] = React.useState(false);  
-  const [open, setOpen] = React.useState(false);
+  const [collapseOpen, setCollapseOpen] = React.useState(false);
+  const [modalView, setOpen] = React.useState(false);
 
-
-  const { connect, disconnect, walletData, installedExtensions } = useHashConnect();
+  const { connect, walletData, installedExtensions } = useHashConnect();
   const { accountIds, netWork, id } = walletData;
 
-  
-
-  const onClickConnectWallet = () => {
-    console.log("===connect wallet===");
-    onClickDisconnectWallet();
-    setOpen(true);
+  const conCatAccounts = (lastAccs: string, Acc: string) => {
+    return lastAccs + " " + Acc;
   };
 
-  const emptyFunction = () => {
-    console.log("===Empty Function===");
-  };
-
-  const onClickDisconnectWallet = () => {
-    console.log("===disconnect wallet===");
-    setOpen(false);
-    disconnect();
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  // const conCatAccounts = (lastAccs: string, Acc: string) => {
-  //   return lastAccs + "   " + Acc;
-  // };
-
-  const handleCopy = () => {
+  const onClickCopyPairingStr = () => {
     navigator.clipboard.writeText(walletData.pairingString);
   };
 
-  const handleClick = () => {
+  const onClickConnectHashPack = () => {
     if (installedExtensions) connect();
     else
       alert(
         "Please install hashconnect wallet extension first. from chrome web store."
       );
+  };
+
+  const onClickOpenModal = () => {
+    setOpen(true);
+  };
+
+  const onClickDisconnectWallet = () => {
+    setOpen(false);
+    // disconnect();
+  };
+
+  const onClickModalClose = () => {
+    setOpen(false);
   };
 
   React.useEffect(() => {
@@ -298,7 +288,7 @@ function IndexNavbar() {
                   }
                 </DropdownMenu>
               </UncontrolledDropdown> */}
-              <NavItem className="wallet-connect-btn" onClick={accountIds?.length > 0 ? () => onClickDisconnectWallet() : () => onClickConnectWallet()}>
+              <NavItem className="wallet-connect-btn" onClick={accountIds?.length > 0 ? () => onClickDisconnectWallet() : () => onClickOpenModal()}>
                 <NavLink>
                   <p><p>{accountIds?.length > 0 ? accountIds[0] : "Connect Wallet"}</p></p>
                 </NavLink>
@@ -307,109 +297,28 @@ function IndexNavbar() {
           </Collapse>
         </Container>
         <Modal
-          open={open && !id}
-          onClose={handleClose}
+          open={modalView}
+          onClose={() => onClickModalClose()}
           centered={true}
-          className="wallet-bar-top"
-          style={{
-            top: "50px",
-            left: "auto",
-            right: "20px",
-            width: "300px"
-          }}
+          className="hashpack-connect-modal"
         >
-          <div
-            className="wallet-bar-modal"
-            style={{
-              backgroundColor: "#031018",
-              maxWidth: "fit-content",
-              padding: "20px 20px",
-              border: "2px solid #479ed0"
-            }}>
-            <div className="wallet-bar-in_modal">
-              <Row>
-                <h3
-                  className="mini-title"
-                  style={{
-                    maxWidth: "fit-content",
-                    float: "left",
-                    margin: "0 70px 0 20px",
-                    color: "white"
-                  }}>
-                  Pair Wallet
-                </h3>
-                <img
-                  src={require("assets/img/close.png")}
-                  className="wallet-bar-modal-close"
-                  onClick={handleClose}
-                  style={{
-                    width: "38px",
-                    height: "38px",
-                    float: "right",
-                    cursor: "pointer"
-                  }} />
+          <div>
+            {!installedExtensions && <p className="warning-message">Wallet is not installed in your browser!</p>}
+            {installedExtensions && <div>
+              <p className="modal-title">Pair Wallet</p>
+              <p className="modal-mini-title">PAIR WITH WALLET</p>
+              <Button className="hashpack-connect-btn" onClick={() => onClickConnectHashPack()}>
+                <img src="https://wallet.hashpack.app/assets/favicon/favicon.ico" />
+                <p>HashPack</p>
+              </Button>
+              <p className="modal-mini-title">PAIR WITH CODE</p>
+              <Row className="pair-with-code-wrapper">
+                <Input value={walletData.pairingString} readOnly={true} />
+                <Button onClick={() => onClickCopyPairingStr()}>Copy</Button>
               </Row>
-              {!installedExtensions &&
-                <p
-                  className="mt-2"
-                  style={{
-                    color: "white"
-                  }}>
-                  Wallet is not installed in your browser
-                </p>
-              }
-              {installedExtensions &&
-                <div>
-                  <p
-                    className="mt-2 mb-1"
-                    style={{
-                      color: "white",
-                      fontWeight: "500"
-                    }}>
-                    PAIR WITH WALLET
-                  </p>
-                  <Button
-                    className="wallet-bar-button"
-                    style={{
-                      width: "100%",
-                      color: "white",
-                      fontWeight: "500",
-                      backgroundColor: "#479ed0"
-                    }}
-                    onClick={handleClick}>
-                    HashPack
-                  </Button>
-                  <p
-                    className="mt-2 mb-1"
-                    style={{
-                      color: "white",
-                      fontWeight: "500"
-                    }}>
-                    PAIR WITH CODE
-                  </p>
-                  <Input
-                    style={{
-                      width: "100%",
-                      color: "white",
-                      fontWeight: "500",
-                      borderRadius: "5px",
-                      backgroundColor: "transparent"
-                    }}
-                    value={walletData.pairingString} />
-                  {/* <Button className="wallet-bar-button" label="Copy Paring String" onClick={handleCopy} /> */}
-                  <p
-                    className="mt-2 mb-1"
-                    style={{
-                      color: "white",
-                      fontWeight: "500"
-                    }}>
-                    PAIR WITH QR CODE
-                  </p>
-                  <QRCode value={walletData.pairingString} />
-                </div>
-              }
-
-            </div>
+              <p className="modal-mini-title">PAIR WITH QR CODE</p>
+              <QRCode value={walletData.pairingString} />
+            </div>}
           </div>
         </Modal>
       </Navbar>

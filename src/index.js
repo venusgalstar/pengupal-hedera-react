@@ -43,6 +43,7 @@ import NFTMintPage from "views/NFTMintPage.js";
 import ClaimPage from "views/ClaimPage.js";
 // nav var
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
+
 import HashConnectProvider from "assets/api/HashConnectAPIProvider.tsx";
 import { HashConnect } from "hashconnect";
 
