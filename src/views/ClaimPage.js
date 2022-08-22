@@ -3,7 +3,7 @@ import { padding } from "@mui/system";
 import React from "react";
 
 // reactstrap components
-import { Container } from "reactstrap";
+import { Row, Col, Container, Button } from "reactstrap";
 
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -11,6 +11,8 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 // core components
+
+import NftCard from '../components/NftCard.js';
 
 function ClaimPage() {
 
@@ -34,29 +36,27 @@ function ClaimPage() {
 
     return (
         <>
-            <div
-                className="section section-about-us"
-                filter-color="blue"
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    paddingTop: "57px",
-                    backgroundColor: "#ffd4ff"
-                }}>
-                <Container>
-                    <TabContext value={value} style={{ backgroundColor: "black", width: "100px" }}>
-                        <Box sx={{ borderBottom: 1, borderColor: 'red' }}>
-                            <TabList onChange={handleChange} aria-label="lab API tabs example">
-                                <Tab label="Item One" value="1" />
-                                <Tab label="Item Two" value="2" />
-                                <Tab label="Item Three" value="3" />
-                            </TabList>
-                        </Box>
-                        <TabPanel value="1">Item One</TabPanel>
-                        <TabPanel value="2">Item Two</TabPanel>
-                        <TabPanel value="3">Item Three</TabPanel>
-                    </TabContext>
+            <div className="section claim-section">
+                <Container className="mt-5">
+                    <Row className="claim-manage-bar pr-4">
+                        <Row>
+                            <p>500000PAL</p>
+                            <p className="mr-4">Total earned</p>
+                        </Row>
+                        <Row>
+                            <Button>Claim</Button>
+                            <Button className="mr-4">Unstake All</Button>
+                        </Row>
+                    </Row>
+                    <Row>
+                        <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" stacked={true}></NftCard>
+                        <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" stacked={true}></NftCard>
+                        <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" stacked={false}></NftCard>
+                        <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" stacked={true}></NftCard>
+                        <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" stacked={true}></NftCard>
+                        <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" stacked={false}></NftCard>
+                        <NftCard nftUrl={require("assets/img/team-avatar-2.png")} nftId="Penguin #872" stacked={true}></NftCard>
+                    </Row>
                 </Container>
             </div>
         </>

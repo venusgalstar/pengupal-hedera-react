@@ -144,11 +144,6 @@ function IndexNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/penguins">
-                  <p>PENGUINS</p>
-                </NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink href="/rarity-tool">
                   <p>RARITY TOOL</p>
                 </NavLink>
@@ -338,7 +333,7 @@ function IndexNavbar() {
                   style={{
                     maxWidth: "fit-content",
                     float: "left",
-                    margin: "0 80px 0 20px",
+                    margin: "0 70px 0 20px",
                     color: "white"
                   }}>
                   Pair Wallet

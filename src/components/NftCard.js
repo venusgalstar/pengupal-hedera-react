@@ -6,25 +6,16 @@ import {
     Col
 } from "reactstrap";
 
-const NftCard = ({ nftUrl, nftId, ownerId, nftPrice }) => {
+const NftCard = ({ nftUrl, nftId, stacked }) => {
 
     const navigateTo = (link) => {
         navigate(link);
     }
 
     return (
-        <div className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-4"
-            style={{
-                display: "flex",
-                justifyContent: "center"
-            }}>
-            <Button
-                className="p-0"
-                style={{
-                    borderRadius: "0",
-                    border: "1px solid #351d35",
-                    backgroundColor: "#351d35"
-                }}>
+        <div className="penguin-nft-card d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-4">
+            <div
+                className="nft-card-wrapper">
                 <Row
                     style={{
                         display: "flex",
@@ -37,25 +28,12 @@ const NftCard = ({ nftUrl, nftId, ownerId, nftPrice }) => {
                         src={nftUrl}
                     ></img>
                 </Row>
-                <Row className="ml-2 mt-2 mb-2">{nftId}</Row>
-                <Row className="ml-2 mb-2">{ownerId}</Row>
-                <Row>
-                    <Col className="pl-2 pr-0">
-                        <p
-                            className="mb-2"
-                            style={{ float: "left" }}>
-                            Price
-                        </p>
-                    </Col>
-                    <Col className="pl-0 pr-2">
-                        <p
-                            className="mb-2"
-                            style={{ float: "right" }}>
-                            {`${nftPrice}PAL`}
-                        </p>
-                    </Col>
+                <div className="nft-id">{nftId}</div>
+                {stacked && <div className="stack-status">Stacked</div>}
+                <Row className="stack-btn-wrapper">
+                    <Button>{stacked ? "Unstake" : "Stake"}</Button>
                 </Row>
-            </Button>
+            </div>
         </div>
     );
 };

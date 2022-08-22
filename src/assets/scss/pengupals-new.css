@@ -5,3 +5,92 @@
 .css-187mznn-MuiSlider-root {
     color: #351d35 !important;
 }
+
+/* @media only screen and (min-width: 768px) {} */
+
+.claim-section {
+    background-color: #ffd4ff;
+    display: flex;
+    flex-direction: column;
+}
+
+.claim-section .row {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.claim-section .col {
+    margin: 0;
+    padding: 0;
+}
+
+.claim-section .claim-manage-bar {
+    width: 100%;
+}
+
+.claim-section .claim-manage-bar .row {
+    width: 100%;
+    display: block;
+    float: right;
+}
+
+.claim-section .claim-manage-bar p {
+    float: right;
+    margin: 0;
+}
+
+.claim-section .claim-manage-bar .btn {
+    float: right;
+}
+
+.penguin-nft-card {
+    display: flex;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.penguin-nft-card .nft-card-wrapper {
+    position: relative;
+    padding: 0;
+    border-radius: 0;
+    border: 1px solid #351d35;
+    overflow: hidden;
+}
+
+.penguin-nft-card .nft-card-wrapper .nft-id {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    background-color: #351d35;
+    color: white;
+    padding: 5px 5px 5px 10px;
+    border-bottom-left-radius: 18px;
+}
+
+.penguin-nft-card .nft-card-wrapper .stack-status {
+    transform: rotate(-45deg);
+    background-color: #351d35;
+    color: white;
+    text-align: center;
+    width: 120px;
+    padding: 5px;
+    position: absolute;
+    top: 15px;
+    left: -30px;
+}
+
+.penguin-nft-card .nft-card-wrapper .stack-btn-wrapper {
+    position: absolute;
+    top: auto;
+    bottom: 10px;
+    width: 100%;
+}
+
+.stack-btn-wrapper .btn {
+    border-radius: 32px;
+    width: 50%;
+    background-color: #351d35;
+    margin: 0 auto;
+}
