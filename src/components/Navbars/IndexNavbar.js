@@ -26,7 +26,8 @@ import { useHashConnect } from "../../assets/api/HashConnectAPIProvider.tsx";
 function IndexNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
-  const [modalView, setOpen] = React.useState(false);
+  const [connectModalView, setWalletConnectModalOpen] = React.useState(false);
+  const [disconnectModalView, setWalletDisconnectModalOpen] = React.useState(false);
 
   const { connect, disconnect, walletData, installedExtensions } = useHashConnect();
   const { accountIds, netWork, id } = walletData;
@@ -47,17 +48,21 @@ function IndexNavbar() {
       );
   };
 
-  const onClickOpenModal = () => {
-    setOpen(true);
+  const onClickDisconnectHashPack = () => {
+    disconnect();
+    setWalletDisconnectModalOpen(false);
+  }
+
+  const onClickOpenConnectModal = () => {
+    setWalletConnectModalOpen(true);
   };
 
-  const onClickDisconnectWallet = () => {
-    setOpen(false);
-    disconnect();
+  const onClickOpenDisConnectModal = () => {
+    setWalletDisconnectModalOpen(true);
   };
 
   const onClickModalClose = () => {
-    setOpen(false);
+    setWalletConnectModalOpen(false);
   };
 
   React.useEffect(() => {
@@ -288,7 +293,7 @@ function IndexNavbar() {
                   }
                 </DropdownMenu>
               </UncontrolledDropdown> */}
-              <NavItem className="wallet-connect-btn" onClick={accountIds?.length > 0 ? () => onClickDisconnectWallet() : () => onClickOpenModal()}>
+              <NavItem className="wallet-connect-btn" onClick={accountIds?.length > 0 ? () => onClickOpenDisConnectModal() : () => onClickOpenConnectModal()}>
                 <NavLink>
                   <p>{accountIds?.length > 0 ? accountIds[0] : "Connect Wallet"}</p>
                 </NavLink>
@@ -297,7 +302,7 @@ function IndexNavbar() {
           </Collapse>
         </Container>
         <Modal
-          open={modalView && !id}
+          open={connectModalView && !id}
           onClose={() => onClickModalClose()}
           centered={true}
           className="hashpack-connect-modal"
@@ -319,6 +324,22 @@ function IndexNavbar() {
               <p className="modal-mini-title">PAIR WITH QR CODE</p>
               <QRCode value={walletData.pairingString} />
             </div>}
+          </div>
+        </Modal>
+        <Modal
+          open={disconnectModalView && id}
+          onClose={() => onClickModalClose()}
+          centered={true}
+          className="hashpack-connect-modal"
+        >
+          <div>
+            <p className="modal-title">Disconnect Wallet</p>
+            <Button
+              className="hashpack-connect-btn"
+              onClick={() => onClickDisconnectHashPack()}
+              style={{ margin: "10px auto" }}>
+              Disconnect
+            </Button>
           </div>
         </Modal>
       </Navbar>
