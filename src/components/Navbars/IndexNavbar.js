@@ -28,7 +28,7 @@ function IndexNavbar() {
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [modalView, setOpen] = React.useState(false);
 
-  const { connect, walletData, installedExtensions } = useHashConnect();
+  const { connect, disconnect, walletData, installedExtensions } = useHashConnect();
   const { accountIds, netWork, id } = walletData;
 
   const conCatAccounts = (lastAccs: string, Acc: string) => {
@@ -53,7 +53,7 @@ function IndexNavbar() {
 
   const onClickDisconnectWallet = () => {
     setOpen(false);
-    // disconnect();
+    disconnect();
   };
 
   const onClickModalClose = () => {
@@ -290,14 +290,14 @@ function IndexNavbar() {
               </UncontrolledDropdown> */}
               <NavItem className="wallet-connect-btn" onClick={accountIds?.length > 0 ? () => onClickDisconnectWallet() : () => onClickOpenModal()}>
                 <NavLink>
-                  <p><p>{accountIds?.length > 0 ? accountIds[0] : "Connect Wallet"}</p></p>
+                  <p>{accountIds?.length > 0 ? accountIds[0] : "Connect Wallet"}</p>
                 </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
         </Container>
         <Modal
-          open={modalView}
+          open={modalView && !id}
           onClose={() => onClickModalClose()}
           centered={true}
           className="hashpack-connect-modal"

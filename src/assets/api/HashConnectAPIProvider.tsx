@@ -25,6 +25,7 @@ interface PropsType {
 
 export interface HashConnectProviderAPI {
   connect: () => void;
+  disconnect: () => void;
   walletData: SaveData;
   netWork: Networks;
   metaData?: HashConnectTypes.AppMetadata;
@@ -48,8 +49,7 @@ let APP_CONFIG: HashConnectTypes.AppMetadata = {
 };
 
 const loadLocalData = (): null | SaveData => {
-  let foundData = localStorage.getItem("  hashConnectData");
-
+  let foundData = localStorage.getItem("hashConnectData");
   if (foundData) {
     const saveData: SaveData = JSON.parse(foundData);
     // setSaveData(saveData);
@@ -60,6 +60,7 @@ const loadLocalData = (): null | SaveData => {
 export const HashConnectAPIContext =
   React.createContext<HashConnectProviderAPI>({
     connect: () => null,
+    disconnect: () => null,
     walletData: INITIAL_SAVE_DATA,
     netWork: "testnet",
     installedExtensions: null,
@@ -79,6 +80,7 @@ export default function HashConnectProvider({
 
   //? Initialize the package in mount
   const initializeHashConnect = async () => {
+    console.log("initializeHashConnect");
     const saveData = INITIAL_SAVE_DATA;
     const localData = loadLocalData();
     try {
@@ -97,7 +99,7 @@ export default function HashConnectProvider({
         saveData.pairingString = hashConnect.generatePairingString(
           state,
           netWork,
-          debug ?? false
+          false
         );
 
         //find any supported local wallets
@@ -123,7 +125,7 @@ export default function HashConnectProvider({
     }
   };
 
-  const saveDataInLocalStorage = (data: MessageTypes.ApprovePairing) => {
+  const saveDataInLocalStorage = async (data: MessageTypes.ApprovePairing) => {
     if (debug)
       console.info("===============Saving to localstorage::=============");
     const { metadata, ...restData } = data;
@@ -132,7 +134,7 @@ export default function HashConnectProvider({
       return { ...prevSaveData, ...restData };
     });
     let dataToSave = JSON.stringify(data);
-    localStorage.setItem("hashconnectData", dataToSave);
+    localStorage.setItem("hashConnectData", dataToSave);
   };
 
   const additionalAccountResponseEventHandler = (
@@ -157,6 +159,10 @@ export default function HashConnectProvider({
   };
 
   useEffect(() => {
+    initializeAll();
+  }, []);
+
+  const initializeAll = () => {
     //Intialize the setup
     initializeHashConnect();
 
@@ -175,7 +181,7 @@ export default function HashConnectProvider({
       hashConnect.foundExtensionEvent.off(foundExtensionEventHandler);
       hashConnect.pairingEvent.off(pairingEventHandler);
     };
-  }, []);
+  };
 
   const connect = () => {
     if (installedExtensions) {
@@ -187,9 +193,19 @@ export default function HashConnectProvider({
     }
   };
 
+  const disconnect = async () => {
+    console.log("===disconnectHashConnect===");
+    await SetSaveData(INITIAL_SAVE_DATA);
+    // await SetInfo([]);
+    let foundData = localStorage.getItem("hashConnectData");
+    if (foundData)
+      localStorage.removeItem("hashConnectData");
+    initializeAll();
+  };
+
   return (
     <HashConnectAPIContext.Provider
-      value={{ connect, walletData: saveData, netWork, installedExtensions }}
+      value={{ connect, disconnect, walletData: saveData, netWork, installedExtensions }}
     >
       {children}
     </HashConnectAPIContext.Provider>
