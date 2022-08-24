@@ -4,11 +4,11 @@ import React from "react";
 import {
   Button,
   Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  NavbarBrand,
+  // DropdownToggle,
+  // DropdownMenu,
+  // DropdownItem,
+  // UncontrolledDropdown,
+  // NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
@@ -30,11 +30,12 @@ function IndexNavbar() {
   const [disconnectModalView, setWalletDisconnectModalOpen] = React.useState(false);
 
   const { connect, disconnect, walletData, installedExtensions } = useHashConnect();
-  const { accountIds, netWork, id } = walletData;
+  // const { accountIds, netWork, id } = walletData;
+  const { accountIds, id } = walletData;
 
-  const conCatAccounts = (lastAccs: string, Acc: string) => {
-    return lastAccs + " " + Acc;
-  };
+  // const conCatAccounts = (lastAccs: string, Acc: string) => {
+  //   return lastAccs + " " + Acc;
+  // };
 
   const onClickCopyPairingStr = () => {
     navigator.clipboard.writeText(walletData.pairingString);
@@ -159,11 +160,6 @@ function IndexNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/nft-mint">
-                  <p>NFT MINT</p>
-                </NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink href="/claim">
                   <p>CLAIM</p>
                 </NavLink>
@@ -235,20 +231,7 @@ function IndexNavbar() {
                   Follow us on Twitter
                 </UncontrolledTooltip>
               </NavItem>
-              {/* <NavItem>
-                <NavLink
-                  href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
-                  target="_blank"
-                  id="facebook-tooltip"
-                >
-                  <i className="fab fa-instagram"></i>
-                  <p className="d-lg-none d-xl-none">Instagram</p>
-                </NavLink>
-                <UncontrolledTooltip target="#facebook-tooltip">
-                  Like us on Instagram
-                </UncontrolledTooltip>
-              </NavItem> */}
-              <NavItem className="mr-5">
+              <NavItem>
                 <NavLink
                   href="https://t.co/CawMg82Gkv"
                   target="_blank"
@@ -259,6 +242,19 @@ function IndexNavbar() {
                 </NavLink>
                 <UncontrolledTooltip target="#instagram-tooltip">
                   Follow us on Discord
+                </UncontrolledTooltip>
+              </NavItem>
+              <NavItem className="mr-5">
+                <NavLink
+                  href="https://zuse.market/collection/0.0.1122159"
+                  target="_blank"
+                  id="facebook-tooltip"
+                >
+                  <img style={{width: "21px"}} alt="..." src={require("assets/img/zuse-logo.png")} />
+                  <p className="d-lg-none d-xl-none">Zuse Market</p>
+                </NavLink>
+                <UncontrolledTooltip target="#facebook-tooltip">
+                  Follow us on Zuse Market
                 </UncontrolledTooltip>
               </NavItem>
               {/* <UncontrolledDropdown nav
@@ -313,7 +309,7 @@ function IndexNavbar() {
               <p className="modal-title">Pair Wallet</p>
               <p className="modal-mini-title">PAIR WITH WALLET</p>
               <Button className="hashpack-connect-btn" onClick={() => onClickConnectHashPack()}>
-                <img src="https://wallet.hashpack.app/assets/favicon/favicon.ico" />
+                <img alt="..." src="https://wallet.hashpack.app/assets/favicon/favicon.ico" />
                 <p>HashPack</p>
               </Button>
               <p className="modal-mini-title">PAIR WITH CODE</p>

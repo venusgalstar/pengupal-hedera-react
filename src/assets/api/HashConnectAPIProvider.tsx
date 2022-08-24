@@ -194,7 +194,7 @@ export default function HashConnectProvider({
   };
 
   const disconnect = async () => {
-    console.log("===disconnectHashConnect===");
+    console.log("Glinton log >>>>> disconnect function called!");
     await SetSaveData(INITIAL_SAVE_DATA);
     // await SetInfo([]);
     let foundData = localStorage.getItem("hashConnectData");

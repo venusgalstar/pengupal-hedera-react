@@ -1,16 +1,8 @@
 /*eslint-disable*/
-import { padding } from "@mui/system";
 import React from "react";
 
 // reactstrap components
 import { Row, Col, Container, Button } from "reactstrap";
-
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-// core components
 
 import NftCard from '../components/NftCard.js';
 

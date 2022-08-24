@@ -41,6 +41,7 @@ import VisionPage from "views/VisionPage.js";
 import ShopPage from "views/ShopPage.js";
 import NFTMintPage from "views/NFTMintPage.js";
 import ClaimPage from "views/ClaimPage.js";
+
 // nav var
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 
